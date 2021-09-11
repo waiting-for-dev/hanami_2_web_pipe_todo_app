@@ -7,7 +7,7 @@ gem "rake", "~> 13.0"
 
 # Application framework
 gem "hanami", github: "hanami/hanami", branch: :main
-%w[hanami-cli hanami-controller hanami-router hanami-utils hanami-view].each do |name|
+%w[hanami-cli hanami-router hanami-utils hanami-view].each do |name|
   gem name, "~> 2.0.0.alpha"
 end
 
@@ -23,6 +23,7 @@ gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
 # Application
+gem "web_pipe", "~> 0.15"
 gem "dry-matcher", "~> 0.8"
 gem "dry-monads", "~> 1.2"
 gem "dry-struct", "~> 1.0"
@@ -32,6 +33,7 @@ gem "dry-transformer", "~> 0.1"
 gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
+gem "rack_csrf", "~> 2.6"
 
 # Development/test
 group :development, :test do

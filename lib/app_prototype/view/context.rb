@@ -32,11 +32,17 @@ module AppPrototype
       end
 
       def current_path
-        request.fullpath
+        self[:current_path]
       end
 
       def csrf_token
-        request.session[Hanami::Action::CSRFProtection::CSRF_TOKEN]
+        self[:csrf_token]
+      end
+
+      private
+
+      def [](key)
+        _options.fetch(key)
       end
     end
   end
