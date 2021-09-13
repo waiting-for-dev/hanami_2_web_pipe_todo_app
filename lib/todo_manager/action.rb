@@ -8,13 +8,13 @@ require "web_pipe/plugs/config"
 
 WebPipe.load_extensions(:hanami_view, :container, :url, :session)
 
-module AppPrototype
+module TodoManager
   class Action
     include WebPipe
 
     use :session, Rack::Session::Cookie,
-        key: "app_prototype.session",
-        secret: AppPrototype::Application.settings["session_secret"],
+        key: "todo_manager.session",
+        secret: TodoManager::Application.settings["session_secret"],
         expire_after: 60 * 60 * 24 * 365 # 1 year
 
     use :csrf_protection, Rack::Csrf, raise: true

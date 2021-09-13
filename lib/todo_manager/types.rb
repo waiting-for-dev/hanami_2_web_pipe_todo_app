@@ -3,7 +3,7 @@
 
 require "dry/types"
 
-module AppPrototype
+module TodoManager
   module Types
     include Dry.Types
   end

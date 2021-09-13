@@ -8,7 +8,7 @@ end
 
 require "hanami"
 
-module AppPrototype
+module TodoManager
   class Application < Hanami::Application
     config.logger = {
       level: :debug,

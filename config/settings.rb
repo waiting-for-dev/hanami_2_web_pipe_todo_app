@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "app_prototype/types"
+require "todo_manager/types"
 require "hanami/application/settings"
 
-module AppPrototype
+module TodoManager
   class Settings < Hanami::Application::Settings
     # Framework
     setting :log_to_stdout, constructor: Types::Params::Bool.optional.default(false)

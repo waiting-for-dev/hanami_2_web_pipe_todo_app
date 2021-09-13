@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "app_prototype/repository"
+require "todo_manager/repository"
 require_relative "entities"
 
 module Main
-  class Repository < AppPrototype::Repository
+  class Repository < TodoManager::Repository
     struct_namespace Entities
   end
 end

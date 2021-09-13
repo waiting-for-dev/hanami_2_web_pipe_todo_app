@@ -36,7 +36,7 @@ module Test
             when :main
               Main::Entities
             else
-              AppPrototype::Entities
+              TodoManager::Entities
             end
           end
       end
