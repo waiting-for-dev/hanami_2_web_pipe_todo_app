@@ -6,6 +6,10 @@ module TodoManager
       def all
         todos.to_a
       end
+
+      def by_id(id)
+        todos.by_pk(id).one
+      end
     end
   end
 end

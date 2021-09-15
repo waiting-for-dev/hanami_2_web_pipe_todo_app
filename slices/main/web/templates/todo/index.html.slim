@@ -2,5 +2,5 @@ h1 List of Todo items
 
 ul
   - todos.each do |todo|
-    li = todo.title
+    li: a href="/todos/#{todo.id}" = todo.title
 

@@ -6,7 +6,14 @@ require "rack/session/cookie"
 require "web_pipe"
 require "web_pipe/plugs/config"
 
-WebPipe.load_extensions(:hanami_view, :container, :url, :session)
+WebPipe.load_extensions(
+  :container,
+  :hanami_view,
+  :params,
+  :router_params,
+  :session,
+  :url
+)
 
 module TodoManager
   class Action
@@ -20,6 +27,7 @@ module TodoManager
     use :csrf_protection, Rack::Csrf, raise: true
 
     plug :config, WebPipe::Plugs::Config.(
+      param_transformations: [:router_params, :deep_symbolize_keys],
       view_context: lambda do |conn|
         {
           current_path: conn.full_path,
