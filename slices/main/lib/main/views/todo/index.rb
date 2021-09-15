@@ -2,8 +2,9 @@
 
 module Main
   module Views
-    module Home
-      class Show < View::Base
+    module Todo
+      class Index < View::Base
+        expose :todos
       end
     end
   end

@@ -13,7 +13,7 @@ module Main
 
     compose :todo_manager, TodoManager::Action.new
 
-    plug :html, WebPipe::Plugs::ContentType.('text/html')
+    plug :json, WebPipe::Plugs::ContentType.('text/html')
 
     plug :config, WebPipe::Plugs::Config.(
       container: TodoManager::Application.slices[:main]
