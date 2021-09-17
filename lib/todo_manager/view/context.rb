@@ -39,6 +39,18 @@ module TodoManager
         self[:csrf_token]
       end
 
+      def csrf_tag(form)
+        form.input(:hidden, name: csrf_field, value: csrf_token)
+      end
+
+      def flash
+        self[:flash]
+      end
+
+      def csrf_field
+        self[:csrf_field]
+      end
+
       private
 
       def [](key)

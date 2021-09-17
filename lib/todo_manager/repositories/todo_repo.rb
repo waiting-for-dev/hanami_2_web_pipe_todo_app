@@ -3,6 +3,8 @@
 module TodoManager
   module Repositories
     class TodoRepo < Repository[:todos]
+      commands :create
+
       def all
         todos.to_a
       end

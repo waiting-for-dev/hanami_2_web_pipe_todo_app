@@ -34,6 +34,8 @@ gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
 gem "rack_csrf", "~> 2.6"
+gem "forme", "~> 1.12"
+gem "rack-flash3", "~> 1.0"
 
 # Development/test
 group :development, :test do

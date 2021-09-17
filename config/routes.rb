@@ -7,7 +7,9 @@ module TodoManager
     define do
       slice :main, at: "/" do
         root to: "todo.index"
+        get "/todos/new", to: "todo.new"
         get "/todos/:id", to: "todo.show"
+        post "/todos", to: "todo.create"
       end
     end
   end

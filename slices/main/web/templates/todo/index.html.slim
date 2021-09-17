@@ -1,5 +1,7 @@
 h1 List of Todo items
 
+a href="/todos/new" Create new
+
 ul
   - todos.each do |todo|
     li: a href="/todos/#{todo.id}" = todo.title

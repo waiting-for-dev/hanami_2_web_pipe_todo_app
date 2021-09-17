@@ -12,4 +12,5 @@ html
     script src=assets["main__public.js"] defer=true
 
   body
+    .flash == flash[:success]
     == yield
