@@ -9,6 +9,8 @@ module TodoManager
         root to: "todo.index"
         get "/todos/new", to: "todo.new"
         get "/todos/:id", to: "todo.show"
+        get "/todos/:id/edit", to: "todo.edit"
+        patch "/todos/:id", to: "todo.update"
         post "/todos", to: "todo.create"
       end
     end
