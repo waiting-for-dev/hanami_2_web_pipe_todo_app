@@ -12,6 +12,7 @@ module TodoManager
         get "/todos/:id/edit", to: "todo.edit"
         patch "/todos/:id", to: "todo.update"
         post "/todos", to: "todo.create"
+        delete "/todos/:id", to: "todo.delete"
       end
     end
   end

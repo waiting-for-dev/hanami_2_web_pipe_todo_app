@@ -4,7 +4,8 @@ module TodoManager
   module Repositories
     class TodoRepo < Repository[:todos]
       commands :create,
-               update: :by_pk
+               update: :by_pk,
+               delete: :by_pk
 
       def all
         todos.to_a
