@@ -14,11 +14,8 @@ module Main
         compose :main, Main::Action.new
 
         plug :fetch_todo
-
         plug :check_todo
-
         plug :transaction
-
         plug :render
 
         private

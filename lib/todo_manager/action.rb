@@ -27,9 +27,7 @@ module TodoManager
         key: "todo_manager.session",
         secret: TodoManager::Application.settings["session_secret"],
         expire_after: 60 * 60 * 24 * 365 # 1 year
-
     use :csrf_protection, Rack::Csrf, raise: true
-
     use :flash, Rack::Flash
 
     plug :config, WebPipe::Plugs::Config.(

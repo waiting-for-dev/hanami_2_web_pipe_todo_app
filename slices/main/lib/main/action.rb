@@ -14,7 +14,6 @@ module Main
     compose :todo_manager, TodoManager::Action.new
 
     plug :json, WebPipe::Plugs::ContentType.('text/html')
-
     plug :config, WebPipe::Plugs::Config.(
       container: TodoManager::Application.slices[:main]
     )

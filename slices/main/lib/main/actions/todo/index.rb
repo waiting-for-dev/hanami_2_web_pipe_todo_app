@@ -14,7 +14,6 @@ module Main
         compose :main, Main::Action.new
 
         plug :fetch_todos
-
         plug :render
 
         private

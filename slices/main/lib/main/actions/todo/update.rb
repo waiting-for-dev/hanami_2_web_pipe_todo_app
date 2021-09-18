@@ -26,13 +26,9 @@ module Main
         compose :main, Main::Action.new
 
         plug :sanitize_params, WebPipe::Plugs::SanitizeParams.(SCHEMA)
-
         plug :fetch_todo
-
         plug :check_todo
-
         plug :transaction
-
         plug :render
 
         private

@@ -24,9 +24,7 @@ module Main
         compose :main, Main::Action.new
 
         plug :sanitize_params, WebPipe::Plugs::SanitizeParams.(SCHEMA)
-
         plug :transaction
-
         plug :render
 
         private
