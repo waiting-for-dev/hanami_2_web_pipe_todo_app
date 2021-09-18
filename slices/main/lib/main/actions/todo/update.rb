@@ -16,7 +16,6 @@ module Main
         ]
 
         SCHEMA = Dry::Schema.Params do
-          required(:id).filled(:integer)
           required(:todo).hash do
             required(:title).maybe(:string)
             required(:description).maybe(:string)
@@ -35,7 +34,7 @@ module Main
 
         def fetch_todo(conn)
           conn
-            .add(:todo, todo_repo.by_id(conn.sanitized_params[:id]))
+            .add(:todo, todo_repo.by_id(conn.params[:id]))
         end
 
         def check_todo(conn)
