@@ -21,7 +21,7 @@ module TodoManager
       private
 
       def validate(input)
-        result = update_todo_contract.call(input)
+        result = update_todo_contract.(input)
         if result.success?
           Success(result.to_h)
         else
