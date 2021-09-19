@@ -30,9 +30,7 @@ module Main
             conn
           else
             conn
-              .set_status(404)
-              .set_response_body('Not found')
-              .halt
+              .not_found
           end
         end
 

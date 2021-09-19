@@ -9,6 +9,7 @@ WebPipe.load_extensions(
   :dry_schema,
   :flash,
   :hanami_view,
+  :not_found,
   :params,
   :redirect,
   :router_params,
