@@ -10,12 +10,17 @@ module Main
         private_expose :todo
         private_expose :errors
 
+        private
+
+        def title
+          "Create a Todo item"
+        end
+
         def form(todo:, errors: {}, context:)
           Forme.form({ method: :post, action: "/todos" }, { obj: todo, errors: { 'todo' => errors }, namespace: 'todo', hidden_tags: [{ context.csrf_field => context.csrf_token }] }) do |f|
-            # context.csrf_tag(f)
-            f.input(:title, label: 'Title')
+            f.input(:title, error: errors[:title], label: 'Title')
             f.input(:description, label: 'Description', type: :textarea)
-            f.button 'Save'
+            f.button(value: 'Save', class: "btn btn-primary")
           end
         end
       end

@@ -30,7 +30,8 @@ module Main
           current_path: conn.full_path,
           csrf_token: Rack::Csrf.token(conn.env),
           csrf_field: Rack::Csrf.field,
-          flash: conn.flash
+          flash: conn.flash,
+          flash_success?: !conn.flash[:success].nil?
         }
       end
     )

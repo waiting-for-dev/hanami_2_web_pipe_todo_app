@@ -1,6 +1,4 @@
-h1 = "Todo \##{todo.id}"
-
-table
+table.table
   thead
     th Title
     th Description
@@ -8,6 +6,6 @@ table
     td = todo.title
     td = todo.description
 
-a href="/todos/#{todo.id}/edit" Edit
+a.btn.btn-primary href="/todos/#{todo.id}/edit" Edit
 
 == delete_form

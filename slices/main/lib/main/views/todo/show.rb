@@ -9,10 +9,15 @@ module Main
         expose :todo
         expose :delete_form
 
+        private
+
+        def title(todo:)
+          "Todo \##{todo.id}"
+        end
+
         def delete_form(todo:, context:)
           Forme.form({ method: :post, action: "/todos/#{todo.id}" }, { hidden_tags: [{ context.csrf_field => context.csrf_token, "_method" => "DELETE" }] }) do |f|
-            # context.csrf_tag(f)
-            f.button 'Delete'
+            f.button({ value: 'Delete', class: "btn btn-danger pull-right" })
           end
         end
       end

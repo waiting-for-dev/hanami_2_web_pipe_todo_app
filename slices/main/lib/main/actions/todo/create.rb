@@ -8,8 +8,8 @@ module Main
   module Actions
     module Todo
       class Create
-        include Dry::Monads[:result]
         include WebPipe
+        include Dry::Monads[:result]
         include Deps[
           "application.transactions.create_todo"
         ]

@@ -11,12 +11,12 @@ module Main
         self[:csrf_token]
       end
 
-      def csrf_tag(form)
-        form.input(:hidden, name: csrf_field, value: csrf_token)
-      end
-
       def flash
         self[:flash]
+      end
+
+      def flash_success?
+        self[:flash_success?]
       end
 
       def csrf_field

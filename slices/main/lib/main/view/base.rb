@@ -11,6 +11,8 @@ module Main
       config.default_context = Main::View::Context.new
 
       config.part_namespace = Parts
+
+      expose :title, layout: true
     end
   end
 end

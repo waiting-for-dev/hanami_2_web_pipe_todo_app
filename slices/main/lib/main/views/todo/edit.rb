@@ -11,12 +11,17 @@ module Main
         private_expose :todo
         private_expose :errors
 
+        private
+
+        def title(id:)
+          "Edit Todo \##{id}"
+        end
+
         def form(id:, todo:, errors: {}, context:)
           Forme.form({ method: :post, action: "/todos/#{id}" }, { obj: todo, errors: { 'todo' => errors }, namespace: 'todo', hidden_tags: [{ context.csrf_field => context.csrf_token, "_method" => "PATCH" }] }) do |f|
-            # context.csrf_tag(f)
             f.input(:title, label: 'Title')
             f.input(:description, label: 'Description', type: :textarea)
-            f.button 'Save'
+            f.button(value: 'Save', class: "btn btn-primary")
           end
         end
       end
