@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "dry/monads"
-require "dry/schema"
 require "web_pipe"
 
 module Main
@@ -15,16 +14,8 @@ module Main
           "application.repositories.todo_repo"
         ]
 
-        SCHEMA = Dry::Schema.Params do
-          required(:todo).hash do
-            required(:title).maybe(:string)
-            required(:description).maybe(:string)
-          end
-        end
-
         compose :main, Main::Action.new
 
-        plug :sanitize_params, WebPipe::Plugs::SanitizeParams.(SCHEMA)
         plug :fetch_todo
         plug :check_todo
         plug :transaction
@@ -44,7 +35,7 @@ module Main
 
         def transaction(conn)
           todo = conn.fetch(:todo)
-          result = update_todo.(todo, conn.sanitized_params[:todo])
+          result = update_todo.(todo, conn.params[:todo])
 
           case result
           in Success

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "dry/monads"
-require "dry/schema"
 require "web_pipe"
 
 module Main
@@ -14,23 +13,15 @@ module Main
           "application.transactions.create_todo"
         ]
 
-        SCHEMA = Dry::Schema.Params do
-          required(:todo).hash do
-            required(:title).maybe(:string)
-            required(:description).maybe(:string)
-          end
-        end
-
         compose :main, Main::Action.new
 
-        plug :sanitize_params, WebPipe::Plugs::SanitizeParams.(SCHEMA)
         plug :transaction
         plug :render
 
         private
 
         def transaction(conn)
-          result = create_todo.(conn.sanitized_params[:todo])
+          result = create_todo.(conn.params[:todo])
 
           case result
           in Success

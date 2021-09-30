@@ -23,6 +23,6 @@ RSpec.feature "Creating a ToDo", :web, :db do
     fill_in "Title", with: ""
     click_on "Save"
 
-    expect(page).to have_content("must be a string")
+    expect(page).to have_content("must be filled")
   end
 end

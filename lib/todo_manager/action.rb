@@ -6,7 +6,6 @@ require "web_pipe/plugs/config"
 
 WebPipe.load_extensions(
   :container,
-  :dry_schema,
   :flash,
   :hanami_view,
   :not_found,
@@ -22,13 +21,7 @@ module TodoManager
     include WebPipe
 
     plug :config, WebPipe::Plugs::Config.(
-      param_transformations: [:router_params, :deep_symbolize_keys],
-      param_sanitization_handler: lambda do |conn, _result|
-        conn
-          .set_status(422)
-          .set_response_body('Malformed params')
-          .halt
-      end
+      param_transformations: %i[router_params deep_symbolize_keys]
     )
   end
 end
