@@ -19,13 +19,15 @@ module Main
         private
 
         def fetch_todos(conn)
-          conn
-            .add(:todos, todo_repo.all)
+          todos = todo_repo.all
+
+          conn.add(:todos, todos)
         end
 
         def render(conn)
-          conn
-            .view('views.todo.index', todos: conn.fetch(:todos))
+          todos = conn.fetch(:todos)
+
+          conn.view('views.todo.index', todos: todos)
         end
       end
     end

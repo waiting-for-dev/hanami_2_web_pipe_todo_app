@@ -23,7 +23,6 @@ gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
 # Application
-# gem "web_pipe", "~> 0.15"
 gem "web_pipe", "~> 0.15.1"
 gem "dry-matcher", "~> 0.8"
 gem "dry-monads", "~> 1.2"
@@ -35,7 +34,7 @@ gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
 gem "rack_csrf", "~> 2.6"
-gem "forme", "~> 1.12"
+gem "forme", github: "jeremyevans/forme"
 gem "rack-flash3", "~> 1.0"
 
 # Development/test

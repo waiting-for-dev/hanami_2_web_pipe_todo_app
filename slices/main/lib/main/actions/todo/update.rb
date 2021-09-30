@@ -33,23 +33,19 @@ module Main
         private
 
         def fetch_todo(conn)
-          conn
-            .add(:todo, todo_repo.by_id(conn.params[:id]))
+          todo = todo_repo.by_id(conn.params[:id])
+
+          conn.add(:todo, todo)
         end
 
         def check_todo(conn)
-          if conn.fetch(:todo)
-            conn
-          else
-            conn
-              .not_found
-          end
+          conn.fetch(:todo) ? conn : conn.not_found
         end
 
         def transaction(conn)
           todo = conn.fetch(:todo)
-
           result = update_todo.(todo, conn.sanitized_params[:todo])
+
           case result
           in Success
             conn

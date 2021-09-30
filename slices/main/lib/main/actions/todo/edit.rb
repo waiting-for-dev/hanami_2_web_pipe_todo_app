@@ -20,24 +20,19 @@ module Main
         private
 
         def fetch_todo(conn)
-          conn
-            .add(:todo, todo_repo.by_id(conn.params[:id]))
+          todo = todo_repo.by_id(conn.params[:id])
+
+          conn.add(:todo, todo)
         end
 
         def check_todo(conn)
-          if conn.fetch(:todo)
-            conn
-          else
-            conn
-              .not_found
-          end
+          conn.fetch(:todo) ? conn : conn.not_found
         end
 
         def render(conn)
           todo = conn.fetch(:todo)
 
-          conn
-            .view('views.todo.edit', id: todo.id, todo: todo)
+          conn.view('views.todo.edit', id: todo.id, todo: todo)
         end
       end
     end
