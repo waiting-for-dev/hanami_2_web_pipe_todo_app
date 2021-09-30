@@ -13,6 +13,13 @@ module Main
   class Action
     include WebPipe
 
+    FETCH_ENTITY_BY_ID = lambda do |repo, name, id: :id|
+      lambda do |conn|
+        entity = repo.by_id(conn.params[id])
+        entity ? conn.add(name, entity) : conn.not_found
+      end
+    end.freeze
+
     compose :todo_manager, TodoManager::Action.new
 
     use :session, Rack::Session::Cookie,

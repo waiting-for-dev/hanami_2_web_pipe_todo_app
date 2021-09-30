@@ -14,19 +14,12 @@ module Main
         compose :main, Main::Action.new
 
         plug :fetch_todo
-        plug :check_todo
         plug :render
 
         private
 
         def fetch_todo(conn)
-          todo = todo_repo.by_id(conn.params[:id])
-
-          conn.add(:todo, todo)
-        end
-
-        def check_todo(conn)
-          conn.fetch(:todo) ? conn : conn.not_found
+          Action::FETCH_ENTITY_BY_ID.(todo_repo, :todo).(conn)
         end
 
         def render(conn)
