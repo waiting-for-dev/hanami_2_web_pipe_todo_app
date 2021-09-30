@@ -25,7 +25,7 @@ module Main
         def render(conn)
           todo = conn.fetch(:todo)
 
-          conn.view('views.todo.edit', id: todo.id, todo: todo)
+          conn.view('views.todo.edit', id: todo.id, object: todo)
         end
       end
     end

@@ -34,7 +34,7 @@ module Main
             conn
           in Failure[result]
             conn
-              .view('views.todo.edit', id: todo.id, todo: result.to_h, errors: result.errors.to_h)
+              .view('views.todo.edit', id: todo.id, object: result)
               .halt
           end
         end

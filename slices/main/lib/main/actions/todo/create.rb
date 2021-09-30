@@ -26,7 +26,7 @@ module Main
             conn
           in Failure[result]
             conn
-              .view('views.todo.new', result: result)
+              .view('views.todo.new', object: result)
               .halt
           end
         end

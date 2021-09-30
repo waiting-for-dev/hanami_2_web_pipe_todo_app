@@ -16,7 +16,7 @@ module Main
         end
 
         def delete_form(todo:, context:)
-          Forme.form({ method: :post, action: "/todos/#{todo.id}" }, { hidden_tags: [{ context.csrf_field => context.csrf_token, "_method" => "DELETE" }] }) do |f|
+          super(entity: todo, name: :todo, context: context) do |f|
             f.button({ value: 'Delete', class: "btn btn-danger pull-right" })
           end
         end

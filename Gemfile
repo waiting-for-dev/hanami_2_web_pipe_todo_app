@@ -34,6 +34,7 @@ gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
 gem "rack_csrf", "~> 2.6"
+# From GH to fetch fix on bs3 formatter
 gem "forme", github: "jeremyevans/forme"
 gem "rack-flash3", "~> 1.0"
 

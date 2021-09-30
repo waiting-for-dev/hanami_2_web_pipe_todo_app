@@ -5,7 +5,7 @@ module Main
     module Todo
       class New < View::Base
         expose :form
-        private_expose :result
+        private_expose :object
 
         private
 
@@ -13,8 +13,8 @@ module Main
           "Create a Todo item"
         end
 
-        def form(result: FormObject::EMPTY_RESULT, context:)
-          creation_form(result, :todo, context: context) do |f|
+        def form(object: FormObject::EMPTY_OBJECT, context:)
+          creation_form(object: object, name: :todo, context: context) do |f|
             f.input(:title, label: 'Title')
             f.input(:description, label: 'Description', type: :textarea)
             f.button(value: 'Save', class: "btn btn-primary")
