@@ -28,9 +28,8 @@ module Main
 
         def transaction(conn)
           todo = conn.fetch(:todo)
-          result = update_todo.(todo, conn.params[:todo])
 
-          case result
+          case update_todo.(todo, conn.params[:todo])
           in Success
             conn
           in Failure[result]

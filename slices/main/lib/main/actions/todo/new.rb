@@ -15,7 +15,7 @@ module Main
         private
 
         def render(conn)
-          conn.view('views.todo.new', todo: {})
+          conn.view('views.todo.new')
         end
       end
     end

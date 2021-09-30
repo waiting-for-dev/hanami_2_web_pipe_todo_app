@@ -21,14 +21,12 @@ module Main
         private
 
         def transaction(conn)
-          result = create_todo.(conn.params[:todo])
-
-          case result
+          case create_todo.(conn.params[:todo])
           in Success
             conn
           in Failure[result]
             conn
-              .view('views.todo.new', todo: result.to_h, errors: result.errors.to_h)
+              .view('views.todo.new', result: result)
               .halt
           end
         end
