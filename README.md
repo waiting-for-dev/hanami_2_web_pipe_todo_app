@@ -1,6 +1,9 @@
 # TodoManager
 
-This is a Hanami 2 application.
+This is a Hanami 2 + web_pipe sample application to be used at RubyConf21:
+
+[Harness the power of functions to build composable rack
+applications](https://rubyconf.org/program/sessions#session-1229).
 
 ## Docker development
 
