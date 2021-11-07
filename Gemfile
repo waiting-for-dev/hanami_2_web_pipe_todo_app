@@ -6,7 +6,7 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", github: "hanami/hanami", branch: :main
+gem "hanami", github: "hanami/hanami", ref: "b449ef1"
 %w[hanami-cli hanami-router hanami-utils hanami-view].each do |name|
   gem name, "~> 2.0.0.alpha"
 end
@@ -30,6 +30,7 @@ gem "dry-struct", "~> 1.0"
 gem "dry-types", "~> 1.0"
 gem "dry-validation", "~> 1.4"
 gem "dry-transformer", "~> 0.1"
+gem "dry-system", "0.20", "< 0.21"
 gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
