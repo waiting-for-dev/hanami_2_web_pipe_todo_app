@@ -23,7 +23,7 @@ gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
 # Application
-gem "web_pipe", "~> 0.15.1"
+gem "web_pipe", github: "waiting-for-dev/web_pipe"
 gem "dry-matcher", "~> 0.8"
 gem "dry-monads", "~> 1.2"
 gem "dry-struct", "~> 1.0"
