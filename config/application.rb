@@ -10,9 +10,7 @@ require "hanami"
 
 module AppPrototype
   class Application < Hanami::Application
-    config.logger = {
-      level: :debug,
-      stream: settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
-    }
+    config.logger.options[:level] = :debug
+    config.logger.options[:stream] = settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
   end
 end
