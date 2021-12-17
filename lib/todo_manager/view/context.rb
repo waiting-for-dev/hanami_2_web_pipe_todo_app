@@ -31,6 +31,14 @@ module TodoManager
         output
       end
 
+      def current_path
+        self[:current_path]
+      end
+
+      def csrf_token
+        self[:csrf_token]
+      end
+
       private
 
       def [](key)

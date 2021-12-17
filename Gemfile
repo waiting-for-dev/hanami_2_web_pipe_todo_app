@@ -6,19 +6,20 @@ source "https://rubygems.org/"
 gem "rake", "~> 13.0"
 
 # Application framework
-gem "hanami", github: "hanami/hanami", ref: "b449ef1"
-%w[hanami-cli hanami-router hanami-utils hanami-view].each do |name|
-  gem name, "~> 2.0.0.alpha"
-end
+gem "hanami", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/hanami.git", branch: "main"
+gem "hanami-cli", "~> 2.0.0.alpha"
+gem "hanami-router", "~> 2.0.0.alpha"
+gem "hanami-utils", "~> 2.0.0.alpha"
+gem "hanami-view", "~> 2.0.0.alpha"
 
 # HTTP
-gem "puma", "~> 4.0"
+gem "puma", "~> 4.3"
 gem "down", "~> 5.1"
 
 # Database
+gem "pg"
 gem "sqlite3"
 gem "rom", "~> 5.2"
-gem "rom-factory", "~> 0.10"
 gem "rom-sql", "~> 3.2"
 gem "sequel", "~> 5.32"
 
@@ -30,7 +31,7 @@ gem "dry-struct", "~> 1.0"
 gem "dry-types", "~> 1.0"
 gem "dry-validation", "~> 1.4"
 gem "dry-transformer", "~> 0.1"
-gem "dry-system", "0.20", "< 0.21"
+gem "dry-configurable", "~> 0.13"
 gem "erbse", "~> 0.1"
 gem "i18n", "~> 1.8"
 gem "slim", "~> 4.0"
@@ -56,6 +57,7 @@ group :test do
   gem "cuprite", "~> 0.8"
   gem "database_cleaner-sequel", "~> 2.0"
   gem "puffing-billy", "~> 2.2"
+  gem "rom-factory", "~> 0.10"
   gem "rspec", "~> 3.9"
   gem "simplecov", "~> 0.17"
 end
