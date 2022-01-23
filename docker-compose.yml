@@ -8,8 +8,7 @@ services:
     volumes:
       - .:/app
       - bundle_path:/usr/local/bundle
-    # command: script/puma
-    command: tail -f Gemfile
+    command: script/puma
     env_file: ".env"
     ports:
       - 2300:2300
