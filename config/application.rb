@@ -10,7 +10,10 @@ require "hanami"
 
 module AppPrototype
   class Application < Hanami::Application
-    config.logger.options[:level] = :debug
-    config.logger.options[:stream] = settings.log_to_stdout ? $stdout : "log/#{Hanami.env}.log"
+    config.sessions = :cookie, {
+      key: "app_prototype.session",
+      secret: settings.session_secret,
+      expire_after: 60 * 60 * 24 * 365 # 1 year
+    }
   end
 end
